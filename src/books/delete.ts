@@ -1,5 +1,5 @@
 import { z } from "zod";
-import zodRouter, { ZodRouter } from "koa-zod-router";
+import { ZodRouter } from "koa-zod-router";
 import { book_collection } from "../database_access";
 import { ObjectId } from "mongodb";
 

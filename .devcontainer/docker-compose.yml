@@ -10,3 +10,10 @@ services:
 
   mongo:
     image: mongo:latest
+    ports:
+      - "27017:27017"       # Expose MongoDB port to host (optional but useful)
+    volumes:
+      - mongo-data:/data/db # Persist MongoDB data between restarts
+
+volumes:
+  mongo-data:

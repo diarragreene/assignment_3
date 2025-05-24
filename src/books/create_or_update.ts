@@ -1,5 +1,5 @@
 import { z } from "zod";
-import zodRouter, { ZodRouter } from "koa-zod-router";
+import { ZodRouter } from "koa-zod-router";
 import { book_collection } from "../database_access";
 import { ObjectId } from "mongodb";
 
@@ -40,7 +40,7 @@ export default function create_or_update_book(router: ZodRouter) {
           } else {
             ctx.statusCode = 404;
           }
-        } catch (e) {
+        } catch {
           ctx.statusCode = 500;
         }
       } else {
@@ -53,7 +53,7 @@ export default function create_or_update_book(router: ZodRouter) {
             image: body.image,
           });
           ctx.body = { id: result.insertedId };
-        } catch (e) {
+        } catch {
           ctx.statusCode = 500;
         }
       }
